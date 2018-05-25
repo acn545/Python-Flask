@@ -1,0 +1,11 @@
+#wrapper{
+    margin: 0px auto;
+    width: 970px;
+}
+#log_in{
+    border: 2px solid black;
+    background-color: bisque;
+    padding: 10px;
+    margin: 5px;
+    display: inline-block;
+}

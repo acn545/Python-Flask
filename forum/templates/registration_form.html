@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Forums - register</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    </head>
+    <body>
+        <div id="wrapper">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  {% for message in messages %}
+                   <h2>{{message}}</h2>
+                  {% endfor %}
+                {% endif %}
+              {% endwith %}
+            <h2>Please fill in the information below to register</h2>
+            <form action="/registration" method="POST" id="registation">
+                First name: <input type="text" name="first_name" id="first_name">
+                Last name: <input type="text" name="last_name" id="last_name">
+                Email: <input type="text" name="email" id="email">
+                Password: <input type="password" name="password" id="password">
+                confirm Password: <input type="password" name="cpassword" id="cpassword">
+                <input type="submit" value="Complete"> 
+            </form>
+           
+            </form>
+        </div>
+    </body>
+</html>

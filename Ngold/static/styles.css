@@ -1,0 +1,18 @@
+#wrapper{
+    width: 970px;
+    margin: 0px auto;
+}
+.box{
+    padding: 50px;
+    text-align: center;
+    display: inline-block;
+    margin: 20px;
+    border: 2px solid black;
+}
+#act{
+    border: 2px solid black;
+    width: 1030px;
+    height: 200px;
+
+    overflow: auto;
+}

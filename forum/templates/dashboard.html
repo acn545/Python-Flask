@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Forums</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    </head>
+    <body>
+        <div id="wrapper">
+            <h2>Welcome to the forums</h2>
+
+            <form action="/post_message" method="POST" id="message">
+                <p>add message:</p>
+                <textarea rows='4' cols="50" name='message' id='message'></textarea>
+                <input type="submit" value="Post a message"> 
+            </form>
+
+            <div id='messages'>
+                    {% for messages in messages: %}
+                        <p>ID: {{ messages['id'] }}</p>
+                        <p>{{ messages['first_name'] }} {{ messages['last_name'] }} says:</p>
+                        <p>{{ messages['message'] }}</p>
+                        {% for comments in comments: %}
+                            {% if messages['id'] == comments['message_id'] %}
+                                <p>_____________________________</p>
+                                <p>{{ comments['first_name'] }} {{ comments['last_name'] }} said at {{ comments['created_at'] }} </p>
+                                <p>{{ comments['comment'] }}</p>
+                            {% endif%}
+                        {% endfor %}
+                        <form action="/post_comment" method="POST" id="comment">
+                            <input type='hidden' value= {{messages['id']}} name="msg_id">
+                            <p>add comment:</p>
+                            <textarea rows='2' cols="25" name='comment' id='comm'></textarea>
+                            <input type="submit" value="Post a comment"> 
+                        </form>
+                        <hr>
+                    {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>

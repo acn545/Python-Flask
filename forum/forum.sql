@@ -1,0 +1,1 @@
+insert into users (id, FirstName)Values(4, "ted")

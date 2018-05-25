@@ -1,0 +1,28 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+            <title>add user</title>
+            <meta charset="utf-8">
+        </head>
+        <body>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  {% for message in messages %}
+                   <h2>{{message}}</h2>
+                  {% endfor %}
+                {% endif %}
+              {% endwith %}
+            <table>
+                <h1>Add a new user</h1>
+                <form action='/users/news' method="POST">
+                First name: <input type="text" name="first_name" id="first_name">
+                Last name: <input type="text" name="last_name" id="last_name">
+                Email address: <input type="text" name="email" id="email">
+                <input type="submit" value="Create">
+            </form>
+        <form action='/' method="GET">    
+            <input type="submit" value="Go back">
+        </form>
+        </body>
+    </html>
+</DOCTYPE>

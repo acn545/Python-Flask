@@ -1,0 +1,27 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+            <title>add user</title>
+            <meta charset="utf-8">
+        </head>
+        <body>
+                {% for friends in friends: %}
+                {% if friends['id'] == ids %}
+                <h1> Edit user {{friends['id']}}</h1>
+                <form action="/users/<{{friends['id']}}>/edits" method="POST">
+                First name: <input type="text" name="first_name" id="first_name">
+                Last name: <input type="text" name="last_name" id="last_name">
+                Email address: <input type="text" name="email" id="email">
+                <input type="submit" value="UPDATE">
+            </form>
+            {% endif %}
+            {% endfor %}
+        <form action='/' method="GET">    
+            <input type="submit" value="Go back">
+        </form>
+        <form action="/users/{{friends['id']}}" method="GET">    
+            <input type="submit" value="Show">
+        </form>
+        </body>
+    </html>
+</DOCTYPE>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Numbers Game</title>
+        <script></script>
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    </head>
+    <body>
+        <h1> Numbers Game</h1>
+        <p>we have picked a number please try and guess the number we have chosen</p>
+        <form action="/guess" method= 'POST'>
+            Guess a number between 0 and 100: <input type="text" name="guess">
+            <input type="submit" value="Guess">
+        </form>
+        <div id="box" style="{{show}};{{color}}" >
+            <p> your guess of {{ session['guess'] }} was {{words}}</p>
+            <form action="/" method= 'POST' style="{{showw}}">
+                <input type="submit" value="play again">
+            </form>
+
+        </div>
+    </body>
+</html> 

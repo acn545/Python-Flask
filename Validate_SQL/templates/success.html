@@ -1,0 +1,39 @@
+<!DOCtYPE html>
+<html>
+<head>
+    <title>success</title>
+    <meta charset="utf-8">
+</head>
+<body>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+           <h2>{{message}}</h2>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <form action='/' method="GET">
+        <input type="submit" value="add more emails">
+    </form>
+<table>
+    <form action='/delete' method="POST">
+        enter email to delete: <input type="text" name='delete' id='delete'>
+        <input type="submit" value="DELETE ENTRY">
+    </form>
+    <h3> All email addresses entered</h3>
+    <tr>
+        <th>Email</th>
+        <th>Submit date</th>
+        <th></th>
+    </tr>
+    {% for emails in emails: %}
+    <tr>
+        <td>{{ emails['email'] }}  </td>
+        <td>{{ emails['created_at'] }}  </td>
+  
+    </tr>
+{% endfor %}
+
+</table>
+</body>
+</html>
